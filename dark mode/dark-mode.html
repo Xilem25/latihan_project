@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <script src="https://kit.fontawesome.com/94db00ba49.js" crossorigin="anonymous"></script>
+   <title>dark-mode</title>
+   <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Supermercado+One&display=swap');
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+:root {
+         --black: #333333;
+         --white: #ffffff;
+         --red: #ff004f;
+      }
+      body {
+         width: 100vw;
+         height: 100vh;
+         position: relative;
+         font-size: 1.3em;
+         font-family: 'Poppins', sans-serif;
+         background-color: white;
+         color: black;
+         display: flex;
+         justify-content: center;
+         flex-direction: column;
+      }
+      nav {
+         width: 100%;
+         background-color: var(--black);
+         padding: 15px;
+         position: fixed;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         bottom: 0;
+         color: var(--white);
+      }
+      button {
+         width: 125px;
+         margin: 0 5px;
+         padding: 5px;
+         text-align: center;
+         font-size: inherit;
+         color: inherit;
+         font-weight: 800;
+         border: none;
+         border-radius: 5px;
+         background-color: var(--red);
+      }
+      p {
+         font-size: 1.5em;
+         color: var(--white);
+      }
+      span {
+         font-size: 1.1em;
+         color: var(--red);
+         font-style: italic;
+      }
+      h1,h2 {
+         text-align: center;
+         margin-top: 50px;
+         color: inherit;
+      }
+      i {
+         font-size: 3em;
+         text-align: center;
+         animation: earphone .2s ease 7.5s infinite alternate;
+      }
+
+
+      .tools-party {
+         display: none;
+      }
+      .h1-active {
+         display: none;
+      }
+      .h2-active {
+         display: none;
+      }
+      .jumlahMenekan-active {
+         display: none;
+      }
+      .sisahMenekan-active {
+         display: none;
+      }
+      .tools-party-active {
+         display: flex;
+         justify-content: center;
+         animation: rotate 10s ease 4s infinite normal;
+      }
+      .tombol-dark-mode-active,
+      .tombol-party-mode-active {
+         background-color: var(--white);
+         color: black;
+         transition: all .5s ease;
+      }
+
+
+      .darkMode-active {
+         background-color: black;
+         color: var(--white);
+      }
+      .partyMode-active {
+         animation: BgParty 2.6s ease 4s infinite alternate;
+      }
+
+
+@keyframes BgParty {
+         0% {
+            background-image: linear-gradient(to right top, #571583, #c20076, #ff4451, #ff9c19, #fdf100);
+         }
+         20% {
+            background-image: linear-gradient(to right, #fdf100, #ffbf1d, #ff8b51, #ff5f80, #fe4da9);
+         }
+         40% {
+            background-image: linear-gradient(to right bottom, #fe4da9, #ff5862, #ff9300, #d4d000, #01ff01);
+         }
+         60% {
+            background-image: linear-gradient(to bottom, #01ff01, #a2d400, #d6a300, #f16900, #f50913);
+         }
+         80% {
+            background-image: linear-gradient(to left bottom, #f50913, #fd0067, #e025ab, #9f5ddc, #207bee);
+         }
+         100% {
+            background-image: linear-gradient(to left, #207bee, #6250a2, #572f5e, #33192a, #000000);
+         }
+      }
+@keyframes earphone {
+         from {
+            font-size: 6em;
+         }
+         to {
+            font-size: 2em;
+         }
+      }
+@keyframes rotate {
+         0% {
+            transform: rotate(0deg);
+         }
+         20% {
+            transform: rotate(40deg);
+         }
+         50% {
+            transform: rotate(0deg);
+         }
+         80% {
+            transform: rotate(-40deg);
+         }
+         100% {
+            transform: rotate(0deg);
+         }
+      }
+
+   </style>
+</head>
+<body>
+
+   <h1>Jumlah kamu menekan <span>Dark-mode : <span id="jumlahMenekan">0</span></span></h1>
+   <h2>Left :<span id="sisahMenekan"> </span></h2>
+
+   <nav>
+      <div class="kanan">
+         <p>
+            Andri<span>.awan</span>
+         </p>
+      </div>
+      <div class="kiri">
+         <button class="tombol-restart" id="tombolRestart">Home</button>
+         <button class="tombol-dark-mode" id="tombolDarkMode">Dark-mode</button>
+         <button class="tombol-party-mode" id="tombolPartyMode">Party-mode</button>
+      </div>
+   </nav>
+
+   <div class="tools-party">
+      <audio src="assets/tet-tet.mp3" type="audio/mpeg" autoplay loop></audio>
+
+      <i class="fa-solid fa-headphones"></i>
+   </div>
+
+
+   <script src="dark-mode.js"></script>
+</body>
+</html>
