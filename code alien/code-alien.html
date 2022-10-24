@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Si Code</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+
+   <h1>Si Code</h1>
+   <input type="text" name="createUnicCode" id="createUnicCode" placeholder="crate code..." />
+   <button id="btnCreate" class="btn btn-success">Crate</button>
+
+   <input type="text" name="translateUnicCode" id="translateUnicCode" placeholder="translate your code..." />
+   <button type="button" id="btnTranslate" class="btn btn-success">Translate</button>
+
+   <div id="result"></div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+   <script type="text/javascript" charset="utf-8">
+
+      const createUnicCode = document.getElementById('createUnicCode')
+      const translateUnicCode = document.getElementById('translateUnicCode')
+      const btnCreate = document.getElementById('btnCreate')
+      const btnTranslate = document.getElementById('btnTranslate')
+      let result = document.getElementById('result')
+
+
+      btnCreate.onclick = tapCreate
+
+      function tapCreate() {
+         result.textContent = create(createUnicCode)
+      }
+
+      btnTranslate.onclick = tapTranslate
+
+      function tapTranslate() {
+         result.textContent = translate(translateUnicCode)
+      }
+
+
+      function create(unicCode) {
+         return unicCode.value.split('').map(text => text.charCodeAt())
+      }
+      function translate(translateCode) {
+         return translateCode.value.split(',').map(code => String.fromCharCode(code)).join('')
+      }
+
+
+      const studets =
+      [{
+         name: 'dicky',
+         age: 18,
+         major: 'ips'
+      }, {
+         name: 'gino',
+         age: 19,
+         major: 'ipa'
+      }, {
+         name: 'fany',
+         age: 18,
+         major: 'ips'
+      }, {
+         name: 'rey',
+         age: 20,
+         major: 'ipa'
+      }]
+
+      const grouped = studets.reduce((wrap, student) => {
+         const item = student['major']
+         if (wrap[item] == null) {
+            wrap[item] = []
+         }
+         wrap[item].push(student)
+
+         return wrap
+      }, {})
+
+      //console.log(grouped.ips[0].name)
+      console.log(grouped)
+
+
+   </script>
+</body>
+</html>
